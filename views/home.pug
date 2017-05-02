@@ -69,11 +69,9 @@ block content
             a.nav-link(href='/login') Login
           |       
           li.nav-item
-            a.nav-link(href='/register') Sign up
+            a.nav-link(href='/signup') Sign up
           |       
-          li.nav-item
-            a.nav-link.disabled() Booking
-          |
+         
 
     br
     .slideshow-container
@@ -92,10 +90,8 @@ block content
     br
 
     div(style='text-align:center')
-
-      button.btn.btn-success-link(href='/login', type='button',style=" background-color: #B01111; border :none;")
-        
-          font(color="#F7842C", size="4")  ENTER SITE
+      a.btn.btn-primary(href='/login', role='button')
+        font(color="#F7842C", size="4")  ENTER SITE
           |   
     script.
       var slideIndex = 0;

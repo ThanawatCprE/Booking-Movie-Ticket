@@ -1,72 +1,71 @@
 extends layout
 
 block content
-  
-  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
-  
-  //- script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
-  
-  html
-  head
+	
+	link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+	
+	script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
 
-  body(style='background-image: url("bg.jpg"); background-repeat: no-repeat; background-size:100%;')
-    nav.navbar.navbar-toggleable-md.navbar-inverse(style='background-color: #660033;').bg-faded
-      button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      |
+	html
+	head
 
-      a.navbar-brand(href='/') Movie Tickets
-      |
+	body(style='background-image: url("bg.jpg"); background-repeat: no-repeat; background-size:100%;')
+		nav.navbar.navbar-toggleable-md.navbar-inverse(style='background-color: #660033;').bg-faded
+			button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			|
 
-      #navbarNav.collapse.navbar-collapse
-        ul.navbar-nav
-          li.nav-item
-            a.nav-link(href='/') Home 
-              
-          |       
-          li.nav-item.active
-            a.nav-link(href='/login') Login
-          |       
-          li.nav-item
-            a.nav-link(href='/register') Sign up
-          |       
-          li.nav-item
-            a.nav-link.disabled() Booking
+			a.navbar-brand(href='/') Movie Tickets
+			|
 
-    img(src='home4.png' style='margin: -330px 0px 0px 100px; ' align="center")
+			#navbarNav.collapse.navbar-collapse
+				ul.navbar-nav
+					li.nav-item
+						a.nav-link(href='/') Home 
+							
+					|       
+					li.nav-item.active
+						a.nav-link(href='/login') Login
+					|       
+					li.nav-item
+						a.nav-link(href='/signup') Sign up
+					|       
+	
+	.container
+		if message.length
+			.alert.alert-danger= message
+			
 
-      |
+		form(action="/login" ,method="post" )
+		
+			|
+			.form-group
+				label(for='username' style='margin : 10px 0px 0px 10px;') Username
+				|
+				.col-lg-10
+					input#username.form-control( placeholder='Enter Username', type='text',name="username")
+				|     
+				
+			.form-group
+				label(for='Password'  style='margin : 0px 0px 0px 10px;') Password
+				|     
+				.col-lg-10
+					input#password.form-control(placeholder='Password', type='password',name="password")
 
-    form(style='display: inline-block; border: 2px solid #BABDBC; margin: 200px 0px 0px 150px; background-color: #f1f1f1; ' )
-      
-      |
-      .form-group
-        label(for='Email' style='margin : 10px 0px 0px 10px;') Email
-        |
-        .col-lg-12
-          input#Email.form-control(aria-describedby='emailHelp', placeholder='Enter Email', type='email')
-        |     
-        
-      .form-group
-        label(for='Password'  style='margin : 0px 0px 0px 10px;') Password
-        |     
-        .col-lg-12
-          input#Password.form-control(placeholder='Password', type='password' ,aria-describedby='passwordHelpInline')
+			|   
+			.form-group
+				label Remember Me                     
+				input.form-control(name='remember', value='yes', type='checkbox')
+									
+				button.btn.btn-info.btn-lg(type='submit') Login 
+				=  ' '
+				a.btn.btn-success.btn-lg(href='/signup' , role='button' ) Sign up
+				|
+				br
+				a.btn.btn-secondary(href='#' , role='button' ) Login as administrator
 
-      |   
-
-      a.btn.btn-primary(href='/booking', role='button' style='margin : 0px 0px 20px 10px;') Sign In 
-      a.btn.btn-inverse(href='/register' , style='margin : 0px 0px 20px 10px; background-color: #80FF00;' , role='button' ) Sign up
-
-      br
-
-      a.btn.btn-inverse(href='#' , style='margin : 0px 0px 20px 10px; background-color: #F7A97F;' , role='button' ) Login as administrator
-
-
-    
-
-    
-
+		
 
 
-  
+
+	
